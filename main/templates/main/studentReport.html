@@ -1,0 +1,111 @@
+{% extends 'index.html' %}
+{% block title %} Departments | eLMS {% endblock title %}
+{% block profile %}
+{% if faculty  %} {% url 'profile' faculty.faculty_id %}
+{% else %} {% url 'profile' student.student_id %}
+{% endif %}
+{% endblock %}
+{% block user %}
+{% if faculty %} {{faculty.name}}
+{% else %} {{student.name}}
+{% endif %}
+{% endblock user %}
+{% block courses %}
+{% url 'myCourses' %}
+{% endblock courses %}
+{% block allCourses %}
+{% url 'courses' %}
+{% endblock %}
+{% block departments %}
+{% url 'departments' %}
+{% endblock %}
+{% block content %}
+<div class="container">
+   <!-- navigation links -->
+   <div class="container shadow-sm">
+      <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+         <ol class="breadcrumb p-3">
+            <li class="breadcrumb-item active animate__animated animate__backInRight" aria-current="page">Student Report</li>
+         </ol>
+      </nav>
+   </div>
+   <!-- navigation links end -->
+
+   <!-- Course Tabs -->
+   <ul class="nav nav-tabs" id="courseTabs" role="tablist">
+      {% for course in courses %}
+      <li class="nav-item" role="presentation">
+         <button class="nav-link {% if forloop.first %}active{% endif %}" id="course-tab-{{ forloop.counter }}" data-bs-toggle="tab" data-bs-target="#course-{{ forloop.counter }}" type="button" role="tab" aria-controls="course-{{ forloop.counter }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
+            {{ course.course.name }}
+         </button>
+      </li>
+      {% endfor %}
+   </ul>
+   <div class="tab-content" id="courseTabsContent">
+      {% for course in courses %}
+      <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="course-{{ forloop.counter }}" role="tabpanel" aria-labelledby="course-tab-{{ forloop.counter }}">
+         {% if course.students %}
+         <table class="table align-middle mb-0 bg-white text-center my-3 shadow rounded">
+            <thead class="bg-light">
+               <tr>
+                  <th>Name</th>
+                  <th>Quiz Marks</th>
+                  <th>Project Marks</th>
+                  <th>Total</th>
+                  <th>Certificate</th>
+               </tr>
+            </thead>
+            <tbody>
+               {% for student in course.students %}
+               <tr>
+                  <td>{{ student.name }}</td>
+                  <td>
+                     {% if student.quiz_marks %}
+                     {% for quiz_mark in student.quiz_marks %}
+                     {% if quiz_mark.attempted %}
+                     {{ quiz_mark.marks }}.00
+                     {% else %}
+                     Not Attempted
+                     {% endif %}
+                     {% endfor %}
+                     {% else %}
+                     No quizzes
+                     {% endif %}
+                  </td>
+                  <td>
+                     {% if student.project_marks %}
+                     {% for project_mark in student.project_marks %}
+                     {% if project_mark.attempted %}
+                     {{ project_mark.marks }}
+                     {% else %}
+                     Not Attempted
+                     {% endif %}
+                     {% endfor %}
+                     {% else %}
+                     No projects
+                     {% endif %}
+                  </td>
+                  <td>{{ student.total }}</td>
+                  {% if student.percentage > 95 %}
+                  <td>Gold</td>
+                  {% elif student.percentage > 85 %}
+                  <td>Silver</td>
+                  {% elif student.percentage > 75 %}
+                  <td>Bronze</td>
+                  {% elif student.percentage > 0 %}
+                  <td>Bronze</td>
+                  {% else %}
+                  <td>-</td>
+                  {% endif %}
+               </tr>
+               {% endfor %}
+            </tbody>
+         </table>
+         {% else %}
+         <div class="text-center h4 text-secondary">No Students to show</div>
+         {% endif %}
+      </div>
+      {% endfor %}
+   </div>
+</div>
+{% endblock %}

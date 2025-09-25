@@ -1,4 +1,4 @@
-# e-Learning Management System
+# TANSAM e-Learning Management System
 
 A learning management and online assessment system for academic education.
 
@@ -37,13 +37,13 @@ A learning management and online assessment system for academic education.
 1. Clone the project
 
 ```bash
-git clone https://github.com/nz-m/eLMS-SWE.git
+git clone https://   
 ```
 
 2. Go to the project directory
 
 ```bash
-cd eLMS-SWE
+cd path
 ```
 
 3. Create a virtual environment and activate it (Windows)
@@ -91,11 +91,3 @@ python manage.py runserver
 ```
 
 Now the project should be running on http://127.0.0.1:8000/
-
-Login as admin and add some courses, teacher and students.
-
-Demo : https://youtu.be/NyL2ajUNxYk
-
-## License
-
-[The MIT License (MIT)](https://github.com/nz-m/eLMS-SWE/blob/main/LICENCE)

@@ -212,7 +212,7 @@ class StudentCourse(models.Model):
 
 class UserSession(models.Model):
     user_id = models.IntegerField()
-    user_type = models.CharField(max_length=15)  # 'student' or 'faculty'
+    user_type = models.CharField(max_length=30)  # 'student' or 'faculty'
     session_key = models.CharField(max_length=40)
     created_at = models.DateTimeField(auto_now_add=True)
     ip_address = models.GenericIPAddressField(null=True)

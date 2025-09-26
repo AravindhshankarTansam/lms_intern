@@ -25,26 +25,31 @@
             <div class="container">
                <div class="signin-content">
                   <div class="signin-image">
-                     <figure><img src="{% static 'images/broadline_logo.png' %}" alt="sing up image"></figure>
+                     <figure><img src="{% static 'images/tansamoldlogo.png' %}" alt="sing up image"></figure>
                   </div>
                   <div class="signin-form">
-                     <h2 class="form-title1">BROADLINE e-LMS</h2>
-                     <h2 class="form-title2">sign in</h2>
+                     <h2 class="form-title1">e-LMS</h2>
+                     <h2 class="form-title2">Sign in</h2>
                      <form method="POST" class="register-form" id="login-form">
                            {% csrf_token %}
                            <div class="form-group">
                               <label for="{{ form.id.id_for_label }}"><span class="material-symbols-outlined" style="vertical-align:text-bottom">person</span></label>
                               {{ form.id }}
                            </div>
-                           <div class="form-group">
-                              <label for="{{ form.password.id_for_label }}"><span class="material-symbols-outlined" style="vertical-align:text-bottom">lock</span></label>
+                           <div class="form-group password-group">
+                              <label for="{{ form.password.id_for_label }}">
+                                 <span class="material-symbols-outlined" style="vertical-align:text-bottom">lock</span>
+                              </label>
                               {{ form.password }}
+                              <span class="material-symbols-outlined eye-toggle">visibility</span>
                            </div>
+
+
                            <div class="d-grid">
                               <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</button>
                            </div>
                      </form>
-                     <div class="d-flex justify-content-around flex-wrap">
+                     {% comment %} <div class="d-flex justify-content-around flex-wrap">
                         <div class="">
                            <div class="dropdown">
                               <a class="dropdown-toggle" id="dropdownMenuButton1"
@@ -60,7 +65,7 @@
                         <div class="">
                            <a href="/admin" target="_blank">Sign in as Admin</a>
                         </div>
-                     </div>
+                     </div> {% endcomment %}
                      {% if error_messages %}
                      <!-- Error Alert -->
                      <div class="alert alert-danger alert-dismissible fade show my-2">
@@ -77,9 +82,22 @@
       </div>
       <script src=" {% static 'js/bootstrap.bundle.min.js' %} "></script>
       <script>
-         if (window.history.replaceState) {
-             window.history.replaceState(null, null, window.location.href);
-         }     
+            if (window.history.replaceState) {
+               window.history.replaceState(null, null, window.location.href);
+            }
+
+            // Select password input and eye icon
+            const passwordInput = document.querySelector('#id_password'); // Django default
+            const eyeToggle = document.querySelector('.eye-toggle');
+
+            // Check if elements exist
+            if (passwordInput && eyeToggle) {
+               eyeToggle.addEventListener('click', () => {
+                  const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                  passwordInput.setAttribute('type', type);
+                  eyeToggle.textContent = type === 'password' ? 'visibility' : 'visibility_off';
+               });
+            }
       </script>
    </body>
 </html>

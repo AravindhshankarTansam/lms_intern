@@ -184,6 +184,16 @@ th {
 .logoutbtn a {
   font-size: 10px; /* Adjust font size if needed */
 }
+/* Navbar active link */
+.navbar-nav .nav-link.active {
+  color: #FFD700 !important; /* Example: gold color for active link */
+  font-weight: bold; /* Optional: make it bold */
+  border-bottom: 2px solid #FFD700; /* Optional: underline effect */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #FFA500 !important; /* Slightly different color on hover */
+}
 
 @media screen and (max-width: 768px) {
   .logoutbtn {

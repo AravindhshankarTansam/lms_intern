@@ -160,12 +160,21 @@
 <!-- announcement section starts -->
 <div class="dropdown rounded p-3 m-3 shadow border border-top-0 border-bottom-0 border-end-0 border-primary border-5 mb-2">
    <!-- Dropdown Trigger -->
-   <button class="btn-full-width rounded p-3 shadow border border-top-0 border-end-0 border-bottom-0 " type="button" data-bs-toggle="collapse" data-bs-target="#announcementCollapse" aria-expanded="false" aria-controls="announcementCollapse">
-      <div class="fw-bold animate__animated animate__zoomInDown fs-5 text-center border-bottom border-1 mb-2 py-2" style="color: rgb(10, 10, 48);">
-         <img src="{% static 'images/icon/megaphone.png' %}" alt="" style="height:1.5rem; vertical-align: text-top" class="bling">
-         <span style="margin-right: 0.6rem;"></span>Instruction
-      </div>
-   </button>
+<button class="btn-full-width rounded p-3 shadow border border-top-0 border-end-0 border-bottom-0 d-flex justify-content-between align-items-center" 
+        type="button" data-bs-toggle="collapse" data-bs-target="#announcementCollapse" 
+        aria-expanded="false" aria-controls="announcementCollapse">
+
+   <!-- Left side: Icon + Text -->
+   <div class="fw-bold animate__animated animate__zoomInDown fs-5 text-center" style="color: rgb(10, 10, 48);">
+      <img src="{% static 'images/icon/megaphone.png' %}" alt="" 
+           style="height:1.5rem; vertical-align: middle;" class="bling">
+      <span style="margin-left: 0.6rem;">Instruction</span>
+   </div>
+
+   <!-- Right side: Dropdown Icon -->
+   <span class="material-symbols-outlined">expand_more</span>
+</button>
+
    <!-- Dropdown Content -->
    <div class="collapse" id="announcementCollapse">
       <div class="card card-body">
@@ -191,11 +200,14 @@
  <!-- course material section starts -->
  <div class="dropdown rounded p-3 m-3 shadow border border-top-0 border-bottom-0 border-warning border-end-0 border-5 mb-2">
    <!-- Dropdown Trigger -->
-   <button class="btn-full-width rounded p-3 shadow border border-top-0 border-end-0 border-bottom-0" type="button" data-bs-toggle="collapse" data-bs-target="#materialCollapse" aria-expanded="false" aria-controls="materialCollapse">
+   <button class="btn-full-width rounded p-3 shadow border border-top-0 border-end-0 border-bottom-0 d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#materialCollapse" aria-expanded="false" aria-controls="materialCollapse">
       <div class="fw-bold animate__animated animate__zoomInDown fs-5 text-center border-bottom border-1 mb-2 py-2" style="color: rgb(10, 10, 48);">
          <img src="{% static 'images/icon/folder.png' %}" alt="" style="height:1.5rem; vertical-align: text-top">
          <span style="margin-right: 0.6rem;"></span>Course Material
       </div>
+
+         <!-- Right side: Dropdown Icon -->
+   <span class="material-symbols-outlined">expand_more</span>
    </button>
    <!-- Dropdown Content -->
    <div class="collapse" id="materialCollapse">
@@ -228,11 +240,14 @@
  <!-- quiz section starts -->
  <div class="dropdown rounded p-3 m-3 shadow border border-top-0 border-bottom-0 border-end-0 border-primary border-5 mb-2">
    <!-- Dropdown Trigger -->
-   <button class="btn-full-width rounded p-3 shadow border border-top-0 border-end-0 border-bottom-0" type="button" data-bs-toggle="collapse" data-bs-target="#quizCollapse" aria-expanded="false" aria-controls="quizCollapse">
+   <button class="btn-full-width rounded p-3 shadow border border-top-0 border-end-0 border-bottom-0 d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#quizCollapse" aria-expanded="false" aria-controls="quizCollapse">
       <div class="fw-bold animate__animated animate__zoomInDown fs-5 text-center border-bottom border-1 mb-2 py-2" style="color: rgb(10, 10, 48);">
          <img src="{% static 'images/icon/quiz-icon.png' %}" alt="" style="height:1.5rem; vertical-align: text-top" class="">
          <span style="margin-right: 0.6rem;"></span>Quiz
       </div>
+
+         <!-- Right side: Dropdown Icon -->
+   <span class="material-symbols-outlined">expand_more</span>
    </button>
    <!-- Dropdown Content -->
    <div id="quizCollapse" class="collapse">
@@ -260,11 +275,14 @@
       <!-- assignment section starts -->
 <div class="dropdown rounded p-3 m-3 shadow border border-top-0 border-bottom-0 border-end-0 border-danger border-5 mb-2">
    <!-- Dropdown Trigger -->
-   <button class="btn-full-width rounded p-3 shadow border border-top-0 border-end-0 border-bottom-0" type="button" data-bs-toggle="collapse" data-bs-target="#assignmentCollapse" aria-expanded="false" aria-controls="assignmentCollapse">
+   <button class="btn-full-width rounded p-3 shadow border border-top-0 border-end-0 border-bottom-0 d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#assignmentCollapse" aria-expanded="false" aria-controls="assignmentCollapse">
       <div class="fw-bold animate__animated animate__zoomInDown fs-5 text-center border-bottom border-1 mb-2 py-2" style="color: rgb(10, 10, 48);">
          <img src="{% static 'images/icon/open-book.png' %}" alt="" style="height:1.5rem; vertical-align: text-top" class="bling">
          <span style="margin-right: 0.6rem;"></span>Project
       </div>
+
+         <!-- Right side: Dropdown Icon -->
+   <span class="material-symbols-outlined">expand_more</span>
    </button>
    <!-- Dropdown Content -->
    <div class="collapse" id="assignmentCollapse">
@@ -301,11 +319,14 @@
       <!-- download certificate section starts -->
       <div class="dropdown rounded p-3 m-3 shadow border border-top-0 border-bottom-0 border-bottom-12 border-end-0 border-primary border-5 mb-2">
          <!-- Dropdown Trigger -->
-         <button class="btn-full-width rounded p-3 shadow border border-top-0 border-end-0 border-bottom-0" type="button" data-bs-toggle="collapse" data-bs-target="#certificateCollapse" aria-expanded="false" aria-controls="certificateCollapse">
+         <button class="btn-full-width rounded p-3 shadow border border-top-0 border-end-0 border-bottom-0 d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#certificateCollapse" aria-expanded="false" aria-controls="certificateCollapse">
             <div class="fw-bold animate__animated animate__zoomInDown fs-5 text-center border-bottom border-1 mb-2 py-2" style="color: rgb(10, 10, 48);">
                <img src="{% static 'images/icon/download_icon.png' %}" alt="" style="height:1.5rem; vertical-align: text-top" class="">
                <span style="margin-right: 0.6rem;"></span> Download Certificate
             </div>
+
+               <!-- Right side: Dropdown Icon -->
+   <span class="material-symbols-outlined">expand_more</span>
          </button>
          <!-- Dropdown Content -->
          <div id="certificateCollapse" class="collapse">
